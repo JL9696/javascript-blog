@@ -62,7 +62,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
 
-  const generateTitleLinks = function(){
+  const generateTitleLinks = function(customSelector = ''){
 
     /* [DONE] remove contents of titleList */
    
@@ -73,7 +73,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     clearTitleList();
 
     /* [DONE] for each article */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     let html = '';
 
