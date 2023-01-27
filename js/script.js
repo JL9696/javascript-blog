@@ -108,6 +108,9 @@ document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
     console.log(links);
     
+    console.log(customSelector);
+    console.log(articles);
+    
   };
 
   generateTitleLinks();
@@ -117,6 +120,8 @@ document.getElementById('test-button').addEventListener('click', function(){
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
+  
+
 
   const generateTags = function(){
     /* [DONE] find all articles */
@@ -184,7 +189,8 @@ document.getElementById('test-button').addEventListener('click', function(){
 
     /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
     
-    const href = clickedElement.querySelectorAll('href');
+    // const href = clickedElement.querySelectorAll('href');
+    const href = clickedElement.getAttribute('href');
     console.log(href);
 
     /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
@@ -219,7 +225,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 
       /* [DONE] add class active */
 
-      allTag.classList.add('active');
+      allTag.classList.add('.active');
   
     /* [DONE] END LOOP: for each found tag link */
     }
@@ -243,7 +249,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 
       /* [DONE] add tagClickHandler as event listener for that link */
 
-      tagLink.addClickListeners('click', tagClickHandler);
+      tagLink.addEventListener('click', tagClickHandler);
   
       /* [DONE] END LOOP: for each link */
 
