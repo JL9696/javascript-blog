@@ -104,23 +104,24 @@ document.getElementById('test-button').addEventListener('click', function(){
       const titlesWrapper = document.querySelector(optTitleListSelector);
       titlesWrapper.insertAdjacentHTML('beforeend', linkHTML);
 
+      const links = document.querySelectorAll('.titles a');
+      console.log(links);
+      
+      console.log(customSelector);
+      console.log(articles);
     }
 
     const links = document.querySelectorAll('.titles a');
-    console.log(links);
-    
-    console.log(customSelector);
-    console.log(articles);
+  
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
     
   };
 
   generateTitleLinks();
 
-  const links = document.querySelectorAll('.titles a');
-  
-  for(let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
+
   
 
 
@@ -136,7 +137,7 @@ document.getElementById('test-button').addEventListener('click', function(){
   
       /* [DONE] find tags wrapper */
 
-      const tagsWrapper = article.querySelector(optArticleTagsSelector);
+      const tagsWrapper = article.querySelector(optArticleTagsSelector).innerHTML = '';
       console.log(tagsWrapper);
   
       /* [DONE] make html variable with empty string */
@@ -159,19 +160,22 @@ document.getElementById('test-button').addEventListener('click', function(){
   
         /* [DONE] generate HTML of the link */
         
-        const tagHTML = '<li><a href="#tag' + tag + '">'+ tag +'</a></li>';
+        const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
         console.log(tagHTML);
 
         /* [DONE] add generated code to html variable */
         
-        html = html + tagHTML + ' ';
+        html = tagHTML + ' ';
+        const tagsWrapper = article.querySelector(optArticleTagsSelector);
+        tagsWrapper.insertAdjacentHTML('beforeend', html);
+        console.log (tagsWrapper)
 
       /* [DONE] END LOOP: for each tag */
       }
       
       /* [DONE] insert HTML of all the links into the tags wrapper */
-
-      tagsWrapper.innerHTML = html;
+      
+     
   
     /* [DONE]  END LOOP: for every article: */
     }
@@ -210,7 +214,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     for(let activeTag of activeTags) {
   
       /* [DONE] remove class active */
-      activeTag.classList('.active');
+      activeTag.classList.remove('active');
 
       /* [DONE] END LOOP: for each active tag link */
 
@@ -228,6 +232,7 @@ document.getElementById('test-button').addEventListener('click', function(){
       /* [DONE] add class active */
 
       allTag.classList.add('active');
+      console.log(allTag);
   
     /* [DONE] END LOOP: for each found tag link */
     }
@@ -252,12 +257,15 @@ document.getElementById('test-button').addEventListener('click', function(){
       /* [DONE] add tagClickHandler as event listener for that link */
 
       tagLink.addEventListener('click', tagClickHandler);
+      console.log(tagLink);
   
       /* [DONE] END LOOP: for each link */
 
     }
 
   };
+
+  addClickListenersToTags();
   
   const generateAuthors = function(){
 
@@ -391,6 +399,6 @@ document.getElementById('test-button').addEventListener('click', function(){
   
   addClickListenersToAuthor();
 
-  addClickListenersToTags();
+  
 
 }
