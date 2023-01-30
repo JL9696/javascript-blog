@@ -198,7 +198,7 @@
 
   const addClickListenersToTags = function(){
     /* [DONE] find all links to tags */
-    const tagLinks = document.querySelectorAll('.post-tags .list a');
+    const tagLinks = document.querySelectorAll('.post-tags .list a, .tags a');
     console.log(tagLinks);
     /* [DONE] START LOOP: for each link */
     for(let tagLink of tagLinks){
@@ -248,7 +248,7 @@
     const authorsParams = calculateTagsParams(allAuthors);
     let allAuthorsHTML = '';
     for(let author in allAuthors){
-      allAuthorsHTML += '<a href="#tag-' + author + '" class="' + optCloudClassPrefix + calculateTagClass(allAuthors[author], authorsParams) + '">' + author + ' (' + allAuthors[author] + ') ' + '</a><br>';
+      allAuthorsHTML += '<a href="#author-' + author + '" class="' + optCloudClassPrefix + calculateTagClass(allAuthors[author], authorsParams) + '">' + author + ' (' + allAuthors[author] + ') ' + '</a><br>';
     }
     authorsList.innerHTML = allAuthorsHTML;
   };
@@ -292,7 +292,7 @@
 
   const addClickListenersToAuthor = function(){
     /* find all links to tags */
-    const authorLinks = document.querySelectorAll('.post-author a');
+    const authorLinks = document.querySelectorAll('.post-author a, .authors a');
     console.log(authorLinks);
     /* START LOOP: for each link */
     for(let authorLink of authorLinks){
