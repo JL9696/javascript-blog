@@ -157,7 +157,7 @@
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
   };
-  
+
   generateTags();
 
 
@@ -195,10 +195,10 @@
     /* [DONE] execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
   };
-  
+
   const addClickListenersToTags = function(){
     /* [DONE] find all links to tags */
-    const tagLinks = document.querySelectorAll('.post-tags .list a .tags a');
+    const tagLinks = document.querySelectorAll('.post-tags .list a');
     console.log(tagLinks);
     /* [DONE] START LOOP: for each link */
     for(let tagLink of tagLinks){
@@ -210,7 +210,7 @@
   };
 
   addClickListenersToTags();
-  
+
   const generateAuthors = function(){
     let allAuthors = [];
     /* [DONE] find all articles */
@@ -292,7 +292,7 @@
 
   const addClickListenersToAuthor = function(){
     /* find all links to tags */
-    const authorLinks = document.querySelectorAll('.post-author a  .authors a');
+    const authorLinks = document.querySelectorAll('.post-author a');
     console.log(authorLinks);
     /* START LOOP: for each link */
     for(let authorLink of authorLinks){
@@ -302,7 +302,7 @@
       /* END LOOP: for each link */
     }
   };
-  
+
   addClickListenersToAuthor();
 
 }
