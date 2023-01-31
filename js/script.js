@@ -132,10 +132,10 @@
       for(let tag of articleTagsArray){
         /* [DONE] generate HTML of the link */       
         const linkHTMLData = {id: tag, title: tag};
-        const tagHTML = templates.tagLink(linkHTMLData);
-        console.log(tagHTML);
+        const linkHTML = templates.tagLink(linkHTMLData);
+        console.log(linkHTML);
         /* [DONE] add generated code to html variable */       
-        html =tagHTML + ' ';
+        html = linkHTML + ' ';
         /* [NEW] check if this link is NOT already in allTags */	      
         if(!allTags[tag]) {     
           /* [NEW] add tag to allTags object */       
@@ -157,13 +157,15 @@
     /* [NEW] create variable for all links HTML code */
     const tagsParams = calculateTagsParams(allTags);
     console.log ('tagsParams:', tagsParams);
-    const allTagsData = {tags: []};
+    let allTagsData = {tags: []};
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allTagsData.tags.push({ tag: tag, count: allTags[tag], className: calculateTagClass(allTags[tag], tagsParams) });    
+      console.log(allTagsData)
       /* [NEW] END LOOP: for each tag in allTags: */
     }
+
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = templates.tagCloudLink(allTagsData);
     console.log(allTagsData);
